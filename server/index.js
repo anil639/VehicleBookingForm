@@ -7,6 +7,7 @@ const {
   createTable,
   seedData,
 } = require("./Models/newDbAndTable");
+const createUserTable = require("./Models/user");
 
 dotenv.config();
 
@@ -17,8 +18,11 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("anil");
 });
-app.use("/vehicle", require("./Routes/carRoutes"));
+//Routes
+app.use("/vehicle", require("./Routes/vehicleRoutes"));
+app.use("/user", require("./Routes/userRotes"));
 
+//DB connection
 createDatabase()
   .then(() => {
     mysqlDb
@@ -27,6 +31,7 @@ createDatabase()
         console.log("DB connected successfully");
         createTable();
         seedData();
+        createUserTable();
         app.listen(port, () => {
           console.log("app listening on port " + port);
         });

@@ -1,4 +1,3 @@
-//Json data for DB
 const data = {
   vehicles: {
     car_types: [
@@ -61,7 +60,7 @@ const data = {
         vehicles: [
           {
             brand: "Bajaj",
-            model: "Pulser",
+            model: "Pulsar",
           },
           {
             brand: "Honda",
