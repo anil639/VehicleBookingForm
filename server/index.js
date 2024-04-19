@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const mysqlDb = require("./config/db");
+const cors = require("cors");
 
 const {
   createDatabase,
@@ -12,6 +13,7 @@ const createUserTable = require("./Models/user");
 dotenv.config();
 
 const app = express();
+app.use(cors());
 const port = process.env.PORT || 8080;
 app.use(express.json());
 
